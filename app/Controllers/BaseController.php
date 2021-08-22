@@ -55,4 +55,27 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
 	}
+
+	public function getResponse(array $responseBody, int $code = ResponseInterface::HTTP_OK)
+	
+	{
+	    return $this
+	        ->response
+	        ->setStatusCode($code)
+	        ->setJSON($responseBody);
+	}
+
+
+	// ta controlers apantoun se form-data request pianontas to ta data mesa apo to post field.
+	// otan omws kaneis JSON request, ta data vriskontai mesa sto body field. GI ayto tsekareis an exei post, alliws
+	// pas kai kaneis getBody()
+
+	public function getRequestInput(IncomingRequest $request){
+		$input = $request->getPost();
+		if (empty($input)) {
+			//convert request body to associative array
+			$input = json_decode($request->getBody(), true);
+		}
+		return $input;
+	}
 }
