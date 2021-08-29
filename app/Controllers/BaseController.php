@@ -82,7 +82,7 @@ class BaseController extends Controller
 	}
 
 	public function validateRequest($input, array $rules, array $messages =[]){
-		$this->validator = Services::Validation()->setRules($rules);
+		$this->validator = Services::Validation();
 		// If you replace the $rules array with the name of the group
 		if (is_string($rules)) {
 			$validation = config('Validation');

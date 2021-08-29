@@ -24,7 +24,7 @@ class Auth extends BaseController
         ];
 
         $input = $this->getRequestInput($this->request);
-        
+
         if (!$this->validateRequest($input, $rules)) {
             return $this
                 ->getResponse(
@@ -64,7 +64,7 @@ return $this
             ]
         ];
 
-$input = $this->getRequestInput($this->request);
+    $input = $this->getRequestInput($this->request);
 
 
         if (!$this->validateRequest($input, $rules, $errors)) {
