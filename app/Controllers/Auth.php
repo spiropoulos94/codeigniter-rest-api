@@ -39,7 +39,7 @@ class Auth extends BaseController
 
        
 
-return $this
+        return $this
             ->getJWTForUser(
                 $input['email'],
                 ResponseInterface::HTTP_CREATED
